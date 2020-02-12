@@ -29,9 +29,8 @@ sigma = zeros(1, size(X, 2));
 mu = mean(X)
 sigma = std(X)
 
-for iter = 1:size(X, 2)
-  X_norm(:,iter) = (X(:,iter) - mu(iter)) / sigma(iter);
-end
+X_norm = (X - mu) * pinv(sigma);
+
 
 % ============================================================
 
